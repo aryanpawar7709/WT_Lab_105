@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+
+    <h2>Simple Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <br><br>
+    <button on click="appendToDisplay('1')">1</button>
+    <button on click="appendToDisplay('2')">2</button>
+    <button on click="appendToDisplay('3')">3</button>
+    <br><br>
+    <button on click="appendToDisplay('4')">4</button>
+    <button on click="appendToDisplay('5')">5</button>
+    <button on click="appendToDisplay('6')">6</button>
+    <br><br>
+    <button on click="appendToDisplay('7')">7</button>
+    <button on click="appendToDisplay('8')">8</button>
+    <button on click="appendToDisplay('9')">9</button>
+    <br><br>
+    <button on click="appendToDisplay('0')">0</button>
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <br><br>
+    <button onclick="calculate('*')">*</button>
+    <button onclick="calculate('/')">/</button>
+    <button onclick="calculate('=')">=</button>
+    <br><br>
+    <h3>Result: <span id="result">0</span></h3>
+
+    <script>
+        function calculate(operator) {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result = 0;
+
+            if (operator === '+') result = num1 + num2;
+            else if (operator === '-') result = num1 - num2;
+            else if (operator === '*') result = num1 * num2;
+            else if (operator === '/') result = num2 !== 0 ? num1 / num2 : "Error";
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+
+</body>
+</html>
